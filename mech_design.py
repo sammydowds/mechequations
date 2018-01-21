@@ -12,3 +12,14 @@ def design_factor(loss_of_function_par, maximum_allowable_par):
 
 	return nd
 
+
+def axial_stress(F, A):
+	#F = axial force, A = cross-sectional area
+	a_s = F/A
+
+	return a_s
+
+def axial_strain(change_in_length, original_length):
+	a_strain = change_in_length/orginial_length
+	return a_strain
+
