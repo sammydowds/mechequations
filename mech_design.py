@@ -23,3 +23,11 @@ def axial_strain(change_in_length, original_length):
 	a_strain = change_in_length/orginial_length
 	return a_strain
 
+def UNS_carbon_steels(look_up):
+	UNS_CS = {'G10': 'Plain Carbon', 'G11': 'Free-cutting carbon steel with more sulfur or phosphorus', 'G13': 'Manganese', 'G23': 'Nickel', 'G25': 'Nickel', 'G31': 'Nickel-chromium', 'G33': 'Nickel-chromium', 'G40': 'Molybdenum', 'G41': 'Chromium-molybdenum', 'G43': 'Nickel-chromium-molybdenum', 'G46': 'Nickel-molybdenum', 'G48': 'Nickel-molybdenum', 'G50': 'Chromium', 'G51': 'Chromium', 'G52': 'Chromium', 'G61': 'Chromium-vanadium', 'G86': 'Chromium-nickel-molybdenum', 'G87': 'Chromium-nickel-molybdenum', 'G92': 'Manganese-silicon', 'G94': 'Nickel-chromium-molybdenum'}
+	UNS_desc = UNS_CS[look_up]
+	print(UNS_CS[look_up])
+	return UNS_desc
+	
+
+UNS_carbon_steels('G10')
