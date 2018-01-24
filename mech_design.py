@@ -28,6 +28,21 @@ def UNS_carbon_steels(look_up):
 	UNS_desc = UNS_CS[look_up]
 	print(UNS_CS[look_up])
 	return UNS_desc
+
+class Ball_Screws():
+	#class for calculating life of a ball screw in revolutions
+
+	def Life_expectancy(Ca, Fm, fw):
+		"""LIfe in revolutions
+		Ca = Basic dynamic load rating
+		Fm = equivalent axial load (N)
+		fw = fatigue facture
+		"""
+
+		L = ((Ca/(Fm*fw))**3)*10**6
+
+		return L
+	#life expectancy
 	
 
 UNS_carbon_steels('G10')
