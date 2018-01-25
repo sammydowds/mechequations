@@ -32,7 +32,8 @@ def UNS_carbon_steels(look_up):
 class Ball_Screws():
 	#class for calculating life of a ball screw in revolutions
 
-	def Life_expectancy(Ca, Fm, fw):
+	def Life_expectancy(Ca, Fm = self.Fm, fw):
+
 		"""LIfe in revolutions
 		Ca = Basic dynamic load rating
 		Fm = equivalent axial load (N)
@@ -42,6 +43,45 @@ class Ball_Screws():
 		L = ((Ca/(Fm*fw))**3)*10**6
 
 		return L
+
+	def equivalent_axial_load(fi, ni, qi, nm):
+
+		#fi = encrement of axial load (N), qi = % load at each load fi, ni = rotational speed at each fi, nm = equivalent rotational speed
+
+		#Fm = Equivalent axial load
+		Fm = 0
+		for i in range(0, len(fi)):
+			Fm = Fm + ((fi[i]**3)*ni/nm*qi/100)**(1/3)
+
+		self.Fm = Fm
+	def where_to_start():
+		steps = ['1) Important conditions to start\
+		Mass being moved along screw (kg)\
+		Stroke length(mm)\
+		Maximum Speed (m/s)\
+		Acceleration time\
+		Deceleration time\
+		Number of reciprocation per minute\
+		Backloash (mm)\
+		Position accuracy +-mm/mm\
+		Positioning accuracy repeatability +-mm\
+		Minimum feed amount s = __mm/pulse\
+		Service life time (hours)\
+		Driving motor RPM\
+		Inertial moment of the motor\
+		Reduction gear (ex: none (direct coupling)\
+		Friction of coefficient of the guidance surface\
+		Guide surface resistance (N)', '2) Selection items\
+		Screw shaft diameter\
+		Lead\
+		Nut model No.\
+		Axial Clearance\
+		Screw shaft support method\
+		Driving motor', '3) Selecting Lead Angle Accuracy: need to find the accuracy grade of the ball screw', 
+		'4) Selecting the Axial Clearance: use required backlashes, however if axial load is constantly applied in a single direction with vertical mount, the axial load does not serve as a backlash.', 
+		'5) Assuming the Screw shaft length: nut length + stroke', '6) Selecting the lead'
+
+
 	#life expectancy
 	
 
