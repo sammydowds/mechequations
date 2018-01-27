@@ -14,5 +14,9 @@ def d_o_f(N, joint_info, m):
 
 	return "This mechanism has: {} degree(s) of freedom".format(dof)
 
+def single_joint_torque_force(M, angul_acc, m, g, r, theta):
+	#M is the scalar inertia of the link about the axis of rotation, m is mass of link, r is the distance from the axis to the center of mas of the link
+	tau = M*angul_acc + m*g*r*cos(theta)
+	return tau
 fi = 1, 1, 1, 1
 print(d_o_f(5, fi, 3))
