@@ -18,5 +18,13 @@ def single_joint_torque_force(M, angul_acc, m, g, r, theta):
 	#M is the scalar inertia of the link about the axis of rotation, m is mass of link, r is the distance from the axis to the center of mas of the link
 	tau = M*angul_acc + m*g*r*cos(theta)
 	return tau
+
+
+class Forward_Kinematics():
+	def position_end_effector(L1, L2, L3, joint_angle1, joint_angle2, joint_angle3):
+		#position of end effector based on lengths of links and joint angles
+		x = L1*cos(joint_angle1) + L2*cos(joint_angle1 + joint_angle2) + L3*cos(joint_angle1+joint_angle2+joint_angle3)
+		y = L1*sin(joint_angle1) + L2*sin(joint_angle1 + joint_angle2) + L3*sin(joint_angle1+joint_angle2+joint_angle3)
+		phi = joint_angle1 + joint_angle2 + joint_angle3
 fi = 1, 1, 1, 1
 print(d_o_f(5, fi, 3))
