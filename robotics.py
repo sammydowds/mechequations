@@ -26,5 +26,15 @@ class Forward_Kinematics():
 		x = L1*cos(joint_angle1) + L2*cos(joint_angle1 + joint_angle2) + L3*cos(joint_angle1+joint_angle2+joint_angle3)
 		y = L1*sin(joint_angle1) + L2*sin(joint_angle1 + joint_angle2) + L3*sin(joint_angle1+joint_angle2+joint_angle3)
 		phi = joint_angle1 + joint_angle2 + joint_angle3
+
+	def forward_kinematics_matrice(T01, T12, T23, T34):
+		#returns the forward kinematics matrice by finding the product of four homogeneous transformation matrices
+		T04 = T01*T12*T23*T34
+
+	def 3r_planar_open_chain(L1, L2, L3, theta_1, theta_2, theta_3):
+		#modeling a 3R open chain with only planar motion
+		T01 = [cos(theta_1), -sin(theta_1), 0, 0; sin(theta_1), cos(theta1), 0, 0; 0, 0, 1, 0; 0, 0, 0, 1]
+
+		return T04
 fi = 1, 1, 1, 1
 print(d_o_f(5, fi, 3))
