@@ -1,4 +1,4 @@
-from textblob import TextBlob
+import nltk
 
 
 class Engineering_Requirements():
@@ -6,12 +6,14 @@ class Engineering_Requirements():
 		self.text = text
 		print('YES')
 
-	def classes_for_software(self):
-		problem_statement = TextBlob(self.text)
-		print('YES')
+	def word_classification(self):
+		text = nltk.tokenize.word_tokenize(self.text)
 
-		return problem_statement.noun_phrases
+		print(nltk.pos_tag(text))
+
+TEXT = "Everyone hates Chris. The software must process all requests for budgeting. The engineer must be able to choose the desired subtask."
+test = Engineering_Requirements(TEXT)
+test.word_classification()
 
 
-test = Engineering_Requirements("Engineer's should be able to plot the actual spending. The CIP Report should be loaded automatically. The PCS Report should be loaded automatically. The combination of spending and committed should be compiled into one dataframe.")
-print(test.classes_for_software())
+
